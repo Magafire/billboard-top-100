@@ -98,10 +98,13 @@ function getCoverFromChartItem(chartItem, $) {
         .replace('url(', '');
       image = image.substr(0, image.length - 2);
     } else {
+	 if ($('.chart-list-item__image', chartItem)[0]) {
       image = $('.chart-list-item__image', chartItem)[0].attribs;
-      image = image['data-src'] || image.src;
+	     image = image['data-src'] || image.src;
+	 }
     }
   }
+     if ($('.chart-list-item__image', chartItem)[0]) 
   return image.trim();
 }
 
